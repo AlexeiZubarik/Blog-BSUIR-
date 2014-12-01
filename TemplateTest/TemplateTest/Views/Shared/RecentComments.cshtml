@@ -1,0 +1,16 @@
+﻿@{
+    Layout = null;
+}
+@model TemplateTest.Models.RecentDataModel
+
+<h4>Recent Comments</h4>
+<ul class="templatemo_list">
+    @foreach (var item in Model.Items)
+    {
+        <li>
+            <p><a href="@item.URL" target="_parent"><strong>@item.Text</strong></a></p>
+            <p class="date">@item.Date.ToString("D") <span>@item.Date.ToString("hh:mm")</span></p>
+        </li>
+    }
+</ul>
+

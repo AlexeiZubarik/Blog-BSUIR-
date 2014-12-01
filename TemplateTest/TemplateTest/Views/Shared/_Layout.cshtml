@@ -1,0 +1,78 @@
+﻿
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Clean Blog Post</title>
+    <meta name="keywords" content="clean blog post, 2-column, multi-level, comments, html css layout" />
+    <meta name="description" content="Clean Blog Post with multi-level commenting" />
+    <link href="~/Content/templatemo_style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+    <div id="templatemo_wrapper">
+
+        <div id="templatemo_menu">
+
+            <ul>
+                <li><a href="#" class="current">Blog</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+
+        </div> <!-- end of templatemo_menu -->
+
+        <div id="templatemo_left_column">
+
+            <div id="templatemo_header">
+
+                <div id="site_title">
+                    <h1><a href="http://www.templatemo.com" target="_parent">Clean <strong>Blog</strong><span>Free HTML-CSS Template</span></a></h1>
+                </div><!-- end of site_title -->
+
+            </div> <!-- end of header -->
+
+            <div id="templatemo_sidebar">
+
+                @*@*<div id="templatemo_rss">
+
+                        <a href="#">SUBSCRIBE NOW <br /><span>to our rss feed</span></a>
+
+                    </div>*@
+                
+                @Html.Action("Recent", "Article")
+                
+               
+               
+                <div class="cleaner_h40"></div>
+
+                @Html.Action("Recent", "Comment")
+            
+                
+
+            </div> <!-- end of templatemo_sidebar -->
+
+        </div> <!-- end of templatemo_left_column -->
+
+        <div id="templatemo_right_column">
+
+           @RenderBody()
+           
+        </div>
+        <!-- end of templatemo_main -->
+        <div class="cleaner_h20"></div>
+
+        <div id="templatemo_footer">
+
+            Copyright © 2048 <a href="#">Your Company Name</a> |
+            <a href="http://www.iwebsitetemplate.com" target="_parent">Website Templates</a> by <a href="http://www.templatemo.com" target="_parent">Free CSS Templates</a>
+
+        </div>
+
+        <div class="cleaner"></div>
+    </div> <!-- end of warpper -->
+
+</body>
+</html>

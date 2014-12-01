@@ -1,0 +1,83 @@
+﻿@model TemplateTest.Models.ArticleModel
+
+<div id="templatemo_main">
+
+    <div class="post_section">
+
+        <span class="comment"><a href="fullpost.html">256</a></span>
+
+        <h2>@Model.Title</h2>
+
+        <p>@Model.Date.ToString("D") @Model.Date.ToString("hh:mm") | <strong>Author:</strong> @Model.Author | <strong>Category:</strong> <a href="#">@Model.Category</a></p>
+
+        <a href="http://www.templatemo.com/page/1" target="_parent"><img src="~/Content/images/templatemo_image_01.jpg" alt="image" /></a>
+
+        <p>@Html.Raw(Model.Body)</p>
+
+    </div>
+
+    <div class="wrap-soc-list">
+        <ul>
+            @foreach (var item in Model.Likes)
+            {
+                <li><a href="#"><img src="~/Content/images/fc-ico.png" alt="" /><span>@item.LikesCount</span></a></li>
+            }
+        </ul>
+    </div>
+
+
+    <div class="comment_tab">
+        Comments
+    </div>
+
+    <div id="comment_section">
+        <ol class="comments first_level">
+            @foreach (var item in Model.Comments)
+            {
+                <li>
+                    <div class="comment_box commentbox1">
+
+                        <div class="gravatar">
+                            <img src="~/Content/images/avator.png" alt="author" />
+                        </div>
+
+                        <div class="comment_text">
+                            <div class="comment_author">@item.Username<span class="date">@item.Date.ToString("D")</span><span class="time">@item.Date.ToString("hh:mm")</span></div>
+                            <p>@item.Body</p>
+                            <div class="reply"><a href="#">Reply</a></div>
+                        </div>
+                        <div class="cleaner"></div>
+                    </div>
+
+                </li>
+            }
+        </ol>
+    </div>
+
+    <div id="comment_form">
+        <h3>Leave a comment</h3>
+
+        <form action="#" method="post">
+            <div class="form_row">
+                <label><strong>Name</strong> (required)</label>
+                <br />
+                <input type="text" name="name" />
+            </div>
+            <div class="form_row">
+                <label><strong>Email</strong>  (required, will not be published)</label>
+                <br />
+                <input type="text" name="name" />
+            </div>
+            <div class="form_row">
+                <label><strong>Comment</strong></label>
+                <br />
+                <textarea name="comment" rows="" cols=""></textarea>
+            </div>
+            <input type="submit" name="Submit" value="Submit" class="submit_btn" />
+        </form>
+
+    </div>
+
+</div>
+<div class="cleaner"></div>
+
