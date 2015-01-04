@@ -10,13 +10,12 @@ namespace TemplateTest.Models
         public RecentDataItemModel()
         {
             Text = "Some recent data text";
-            URL = "http://vk.com";
+            ID = new Random(99).Next(1, 9999);
             Date = DateTime.Now.AddDays(-1);
-
         }
 
         public string Text { get; set; }
-        public string URL { get; set; }
+        public int ID { get; set; }
         public DateTime Date { get; set; }
     }
 }

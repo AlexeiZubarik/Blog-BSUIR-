@@ -9,7 +9,13 @@ namespace TemplateTest.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    var model = new ArticleModel();
+        //    return View(model);
+        //}
+
+        public ActionResult Index(string id)
         {
             var model = new ArticleModel();
             return View(model);

@@ -11,12 +11,15 @@ namespace TemplateTest.Controllers
     {
         //
         // GET: /Article/
+        public ContentResult GetByUrl(string seoUrl)
+        {
+            return new ContentResult() { Content = "#" + seoUrl + "#" };
+        }
 
         public ActionResult Recent()
         {
             var model = new RecentDataModel();
             return View(model);
         }
-
     }
 }
