@@ -1,0 +1,28 @@
+﻿@{
+    Layout = null;
+}
+
+@model TemplateTest.Models.AddCommentModel
+<div id="comment_form">
+    <form action="@Url.Action("AddComment", "Home")" method="post">
+       
+        @*<div class="form_row">
+        <label><strong>Name</strong> (required)</label>
+        <br />
+        <input type="text" name="name" />
+    </div>
+    <div class="form_row">
+        <label><strong>Email</strong>  (required, will not be published)</label>
+        <br />
+        <input type="text" name="name" />
+    </div>*@
+        <div class="form_row">   
+            @Html.TextAreaFor(m => m.Comment, new { placeholder = "You comment" })  
+            @Html.TextBoxFor(m => m.User.UserName)   
+            @Html.TextBoxFor(m => m.User.Age)    
+            @*<textarea name="comment" rows="" cols=""></textarea>*@
+        </div>
+        <input type="submit" name="Submit" value="Submit" class="submit_btn" />
+    </form>
+
+</div>
