@@ -1,4 +1,6 @@
-﻿@model TemplateTest.Models.ArticleModel
+﻿@using TemplateTest.Models
+@model TemplateTest.Models.ArticleModel
+
 
 <div id="templatemo_main">
 
@@ -6,24 +8,28 @@
 
         <span class="comment"><a href="fullpost.html">256</a></span>
 
-        <h2>@Model.Title</h2>
+        @if(Model.Post != null)
+        {
+            <h2>@Model.Post.Title</h2>
 
-        <p>@Model.Date.ToString("D") @Model.Date.ToString("hh:mm") | <strong>Author:</strong> @Model.Author | <strong>Category:</strong> <a href="#">@Model.Category</a></p>
+            <p>@Model.Post.DateCreated.Date.ToString("D") @Model.Post.DateCreated.ToString("hh:mm") | <strong>Author:</strong>| <strong>Category:</strong> <a href="#"></a></p>
 
-        <a href="http://www.templatemo.com/page/1" target="_parent"><img src="~/Content/images/templatemo_image_01.jpg" alt="image" /></a>
+            <a href="http://www.templatemo.com/page/1" target="_parent"><img src="~/Content/images/templatemo_image_01.jpg" alt="image" /></a>
 
-        <p>@Html.Raw(Model.Body)</p>
+            <p>@Html.Raw(Model.Post.Body)</p>
+        }
+        
 
     </div>
 
-    <div class="wrap-soc-list">
+    @*<div class="wrap-soc-list">
         <ul>
             @foreach (var item in Model.Likes)
             {
                 <li><a href="#"><img src="~/Content/images/fc-ico.png" alt="" /><span>@item.LikesCount</span></a></li>
             }
         </ul>
-    </div>
+    </div>*@
 
 
     <div class="comment_tab">
@@ -32,51 +38,31 @@
 
     <div id="comment_section">
         <ol class="comments first_level">
-            @foreach (var item in Model.Comments)
+            @if (Model.Comments != null)
             {
-                <li>
-                    <div class="comment_box commentbox1">
+                foreach (string item in Model.Comments)
+                {
+                    <li>
+                        <div class="comment_box commentbox1">
 
-                        <div class="gravatar">
-                            <img src="~/Content/images/avator.png" alt="author" />
+                            <div class="gravatar">
+                                <img src="~/Content/images/avator.png" alt="author" />
+                            </div>
+
+                            <div class="comment_text">
+                                <div class="comment_author"><span class="date">@DateTime.Now.Date.ToString("D")</span><span class="time">@DateTime.Now.Date.ToString("hh:mm")</span></div>
+                                <p>@item</p>
+                                <div class="reply"><a href="#">Reply</a></div>
+                            </div>
+                            <div class="cleaner"></div>
                         </div>
-
-                        <div class="comment_text">
-                            <div class="comment_author">@item.Username<span class="date">@item.Date.ToString("D")</span><span class="time">@item.Date.ToString("hh:mm")</span></div>
-                            <p>@item.Body</p>
-                            <div class="reply"><a href="#">Reply</a></div>
-                        </div>
-                        <div class="cleaner"></div>
-                    </div>
-
-                </li>
-            }
+                    </li>
+                }
+            }          
         </ol>
-    </div>
+    </div>    
 
-    <div id="comment_form">
-        <h3>Leave a comment</h3>
-
-        <form action="#" method="post">
-            <div class="form_row">
-                <label><strong>Name</strong> (required)</label>
-                <br />
-                <input type="text" name="name" />
-            </div>
-            <div class="form_row">
-                <label><strong>Email</strong>  (required, will not be published)</label>
-                <br />
-                <input type="text" name="name" />
-            </div>
-            <div class="form_row">
-                <label><strong>Comment</strong></label>
-                <br />
-                <textarea name="comment" rows="" cols=""></textarea>
-            </div>
-            <input type="submit" name="Submit" value="Submit" class="submit_btn" />
-        </form>
-
-    </div>
+    @Html.Partial("~/Views/Home/AddComment.cshtml", null, new ViewDataDictionary())
 
 </div>
 <div class="cleaner"></div>

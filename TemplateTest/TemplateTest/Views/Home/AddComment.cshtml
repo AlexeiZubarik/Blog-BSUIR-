@@ -2,9 +2,10 @@
     Layout = null;
 }
 
-@model TemplateTest.Models.AddCommentModel
+@model TemplateTest.Models.ArticleModel
 <div id="comment_form">
-    <form action="@Url.Action("AddComment", "Home")" method="post">
+    @Html.ValidationSummary()
+    <form action="@Url.Action("Index", "Home")" method="post">
        
         @*<div class="form_row">
         <label><strong>Name</strong> (required)</label>
@@ -17,9 +18,8 @@
         <input type="text" name="name" />
     </div>*@
         <div class="form_row">   
-            @Html.TextAreaFor(m => m.Comment, new { placeholder = "You comment" })  
-            @Html.TextBoxFor(m => m.User.UserName)   
-            @Html.TextBoxFor(m => m.User.Age)    
+           @Html.ValidationMessageFor(m => m.NewComment.Comment)
+           @Html.TextAreaFor(m => m.NewComment.Comment, new { placeholder = "Your comment" })
             @*<textarea name="comment" rows="" cols=""></textarea>*@
         </div>
         <input type="submit" name="Submit" value="Submit" class="submit_btn" />
