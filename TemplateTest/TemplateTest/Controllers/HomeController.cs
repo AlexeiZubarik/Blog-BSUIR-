@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using TemplateTest.Models;
 using TemplateTest.Repository;
 
@@ -10,14 +12,13 @@ namespace TemplateTest.Controllers
 {
     public class HomeController : Controller
     {
-        //public ActionResult Index()
-        //{
-        //    var model = new ArticleModel();
-        //    return View(model);
-        //}
         [HttpGet]
         public ActionResult Index(string title)
         {
+            FormsAuthentication.SetAuthCookie("Alexei", true);
+            //var cookie = FormsAuthentication.GetAuthCookie("Alexei", true);
+            //Response.Cookies.Add(cookie);
+
             if(title == null)
             {
                 title = "This is my first title";
@@ -25,7 +26,9 @@ namespace TemplateTest.Controllers
             var readers = new DataReaders();
             return View(readers.GetArticleModel(title));
         }
+
         [HttpPost]
+        [Authorize(Users = "Megan")]
         public ActionResult Index(ArticleModel model)
         {
             var  title = "This is my first title";

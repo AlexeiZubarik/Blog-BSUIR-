@@ -1,0 +1,25 @@
+﻿@using TemplateTest.Models
+@model LoginModel
+@{
+    ViewBag.Title = "Log in";
+}
+    <h2>Login Form</h2>
+ <div id="comment_form">
+    <form method="post" action="@Url.Action("Index", "Home")">
+
+        <div class="form_row">
+            <strong>@Html.LabelFor(m => m.Email)</strong>
+            <br />
+            @Html.TextBoxFor(m => m.Email)
+        </div>
+
+        <div class="form_row">
+            <strong>@Html.LabelFor(m => m.Password)</strong>
+            <br />
+            @Html.TextBoxFor(m => m.Password)
+        </div>
+
+        <input type="submit" name="Log in" value="Submit" class="submit_btn" />
+
+    </form>
+</div>

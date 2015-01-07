@@ -1,5 +1,4 @@
 ﻿
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -16,10 +15,9 @@
         <div id="templatemo_menu">
 
             <ul>
-                <li><a href="#" class="current">Blog</a></li>
-                <li><a href="#">Portfolio</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
+                <li>@Html.ActionLink("Home", "Index","Home")</li>
+                <li>@Html.ActionLink("Log in", "Login", "Account")</li>
+                <li>@Html.ActionLink("Register", "Register", "Account")</li>               
             </ul>
 
         </div> <!-- end of templatemo_menu -->
@@ -56,9 +54,12 @@
         </div> <!-- end of templatemo_left_column -->
 
         <div id="templatemo_right_column">
+            <div id="templatemo_main">
 
-           @RenderBody()
-           
+                @RenderBody()
+
+                <div class="cleaner"></div>
+           </div>
         </div>
         <!-- end of templatemo_main -->
         <div class="cleaner_h20"></div>

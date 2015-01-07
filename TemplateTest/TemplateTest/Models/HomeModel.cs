@@ -7,12 +7,12 @@ namespace TemplateTest.Models
 {
     public class HomeModel 
     {
-        public HomeModel()
-        {
-            Article = new ArticleModel();      
-        }
+        //public HomeModel()
+        //{
+        //    Article = new ArticleModel();      
+        //}
 
-        public ArticleModel Article { get; set; }
+        //public ArticleModel Article { get; set; }
        
     }
 }

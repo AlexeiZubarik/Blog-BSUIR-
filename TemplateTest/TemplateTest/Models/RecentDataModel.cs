@@ -14,8 +14,6 @@ namespace TemplateTest.Models
             Items.Add(new RecentDataItemModel());
             Items.Add(new RecentDataItemModel());
             Items.Add(new RecentDataItemModel());
-
-
         }
 
         public ICollection<RecentDataItemModel> Items { get; set; }

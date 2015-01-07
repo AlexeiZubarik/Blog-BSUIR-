@@ -128,16 +128,17 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddCommentModel.cs" />
     <Compile Include="Models\ArticleModel.cs" />
     <Compile Include="Models\CommentItemModel.cs" />
-    <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\LikeModel.cs" />
     <Compile Include="Models\PostModel.cs" />
     <Compile Include="Models\RecentDataItemModel.cs" />
@@ -146,6 +147,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CommentsRepository.cs" />
     <Compile Include="Repository\DataReaders.cs" />
+    <Compile Include="UserAccount.cs" />
+    <Compile Include="UserAccountDAO.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\images\avator.png" />
@@ -186,6 +189,9 @@
     <Content Include="Content\images\templatemo_wrapper.png" />
     <Content Include="Content\templatemo_style.css" />
     <Content Include="Global.asax" />
+    <Content Include="Views\Home\Index.cshtml">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -209,9 +215,6 @@
     <Content Include="Content\images\Thumbs.db" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Shared\RecentPosts.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -225,6 +228,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\AddComment.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\Login.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\Register.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
