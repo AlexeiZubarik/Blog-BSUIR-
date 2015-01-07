@@ -7,15 +7,30 @@ namespace TemplateTest.Models
 {
     public class RecentDataItemModel
     {
-        public RecentDataItemModel()
+        private readonly string text;
+        private readonly int id;
+        private readonly DateTime date;
+
+        public RecentDataItemModel(string text,int id, DateTime date)
         {
-            Text = "Some recent data text";
-            ID = new Random(99).Next(1, 9999);
-            Date = DateTime.Now.AddDays(-1);
+            this.text = text;
+            this.id = id;
+            this.date = date;
         }
 
-        public string Text { get; set; }
-        public int ID { get; set; }
-        public DateTime Date { get; set; }
+        public string Text 
+        {
+            get { return text; }
+        }
+
+        public int ID
+        {
+            get { return id; }
+        }
+
+        public DateTime Date
+        {
+            get { return date; }
+        }        
     }
 }

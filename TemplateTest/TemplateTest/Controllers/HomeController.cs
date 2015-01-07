@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using TemplateTest.Models;
 using TemplateTest.Repository;
+using TemplateTest.Repository.Domain;
 
 namespace TemplateTest.Controllers
 {
@@ -23,8 +24,23 @@ namespace TemplateTest.Controllers
             {
                 title = "This is my first title";
             }
-            var readers = new DataReaders();
-            return View(readers.GetArticleModel(title));
+            using (var ctx = new EFContext())
+            {
+                var post = ctx.Posts.Where(p => p.Title == title).FirstOrDefault();
+                var postModel = new PostModel(post.Title, post.Body, post.DateCreated, post.Comments.Count());
+                var commentModel = new Collection<string>();
+                if(post.Comments != null && post.Comments.Any())
+                {
+                    foreach (var item in post.Comments)
+                    {
+                        commentModel.Add(item.Body); 
+                    }
+                }
+                return View(new ArticleModel(postModel, commentModel));
+            }
+            
+            //var readers = new DataReaders();
+            //return View(readers.GetArticleModel(title));
         }
 
         [HttpPost]
@@ -34,13 +50,28 @@ namespace TemplateTest.Controllers
             var  title = "This is my first title";
             if(model.NewComment != null && ModelState.IsValid)
             {
-                var readers = new DataReaders();
-                readers.AddComment(title, model.NewComment.Comment);
+                using(var ctx = new EFContext())
+                {
+                    var post = ctx.Posts.Where(p => p.Title == title).FirstOrDefault();
+                    if(post != null)
+                    {
+                        ctx.Comments.Add(new Comment() {Body = model.NewComment.Comment, PostID = post.PostID});
+                        ctx.SaveChanges();
+                    }
+                }
+                //var readers = new DataReaders();
+                //readers.AddComment(title, model.NewComment.Comment);
                 ModelState.Clear();
-                return View(readers.GetArticleModel(title));
+                return RedirectToAction("Index", new { title = title});
             }
             
             return View(model);
+        }
+
+        public ActionResult AllPosts()
+        {
+            var model = new PostsCollectionModel();
+            return View(model);            
         }
     }
 }

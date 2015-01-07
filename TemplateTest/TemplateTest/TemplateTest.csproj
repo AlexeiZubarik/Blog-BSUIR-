@@ -39,6 +39,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -57,9 +64,6 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -141,12 +145,15 @@
     <Compile Include="Models\CommentItemModel.cs" />
     <Compile Include="Models\LikeModel.cs" />
     <Compile Include="Models\PostModel.cs" />
+    <Compile Include="Models\PostsCollectionModel.cs" />
     <Compile Include="Models\RecentDataItemModel.cs" />
     <Compile Include="Models\RecentDataModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CommentsRepository.cs" />
-    <Compile Include="Repository\DataReaders.cs" />
+    <Compile Include="Repository\Domain\Comment.cs" />
+    <Compile Include="Repository\Domain\Post.cs" />
+    <Compile Include="Repository\EFContext.cs" />
     <Compile Include="UserAccount.cs" />
     <Compile Include="UserAccountDAO.cs" />
   </ItemGroup>
@@ -215,12 +222,6 @@
     <Content Include="Content\images\Thumbs.db" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\RecentPosts.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\RecentComments.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Comment\Recent.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -234,6 +235,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Account\Register.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\AllPosts.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

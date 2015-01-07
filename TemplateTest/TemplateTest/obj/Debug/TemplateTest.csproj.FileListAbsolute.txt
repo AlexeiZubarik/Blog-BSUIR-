@@ -145,3 +145,6 @@ D:\Work\My blog\Blog\Blog(BSUIR)\TemplateTest\TemplateTest\bin\ru\System.Web.Web
 D:\Work\My blog\Blog\Blog(BSUIR)\TemplateTest\TemplateTest\obj\Debug\TemplateTest.csprojResolveAssemblyReference.cache
 D:\Work\My blog\Blog\Blog(BSUIR)\TemplateTest\TemplateTest\obj\Debug\TemplateTest.dll
 D:\Work\My blog\Blog\Blog(BSUIR)\TemplateTest\TemplateTest\obj\Debug\TemplateTest.pdb
+D:\Work\My blog\Blog\Blog(BSUIR)\TemplateTest\TemplateTest\bin\EntityFramework.SqlServer.dll
+D:\Work\My blog\Blog\Blog(BSUIR)\TemplateTest\TemplateTest\bin\EntityFramework.SqlServer.xml
+D:\Work\My blog\Blog\Blog(BSUIR)\TemplateTest\TemplateTest\bin\ru\EntityFramework.SqlServer.resources.dll

@@ -1,0 +1,25 @@
+﻿@using TemplateTest.Models
+@model PostsCollectionModel
+@{
+    ViewBag.Title = "All Posts";
+}
+   
+@foreach (var item in Model.Items)
+{
+    <div class="post_section">
+
+        <span class="comment">@item.CountComments</span>
+
+        <h2><a href="blog_post.html">@item.Title</a></h2>
+
+
+        @item.DateCreated.ToString() | <strong>Author:</strong> John | <strong>Category:</strong> <a href="#">Freebies</a>
+
+        <img src="~/Content/images/gallery/image_01.jpg" alt="image 1" />
+
+        <p>@item.Body</p>
+        <a href="blog_post.html">Continue reading...</a>
+
+    </div>
+}
+    

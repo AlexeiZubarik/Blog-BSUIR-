@@ -1,36 +1,18 @@
 ﻿@using TemplateTest.Models
 @model TemplateTest.Models.ArticleModel
 
+    <div class="post_section">       
 
-
-
-    <div class="post_section">
-
-        <span class="comment"><a href="fullpost.html">256</a></span>
-
-        @if(Model.Post != null)
+        @if (Model.Post != null)
         {
+            <span class="comment">@Model.Post.CountComments</span>
             <h2>@Model.Post.Title</h2>
-
             <p>@Model.Post.DateCreated.Date.ToString("D") @Model.Post.DateCreated.ToString("hh:mm") | <strong>Author:</strong>| <strong>Category:</strong> <a href="#"></a></p>
-
             <a href="http://www.templatemo.com/page/1" target="_parent"><img src="~/Content/images/templatemo_image_01.jpg" alt="image" /></a>
-
             <p>@Html.Raw(Model.Post.Body)</p>
-        }
-        
+        }      
 
     </div>
-
-    @*<div class="wrap-soc-list">
-        <ul>
-            @foreach (var item in Model.Likes)
-            {
-                <li><a href="#"><img src="~/Content/images/fc-ico.png" alt="" /><span>@item.LikesCount</span></a></li>
-            }
-        </ul>
-    </div>*@
-
 
     <div class="comment_tab">
         Comments
