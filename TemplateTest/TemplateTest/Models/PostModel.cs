@@ -11,12 +11,12 @@ namespace TemplateTest.Models
         private readonly DateTime dateCreated;
         private readonly int countComments;
 
-        public PostModel(string title, string body, DateTime dateCreated,int countComments)
+        public PostModel(string title, string body, DateTime dateCreated)
         {
             this.title = title;
             this.body = body;
             this.dateCreated = dateCreated;
-            this.countComments = countComments;
+          //  this.countComments = countComments;
         }
 
         public string Title

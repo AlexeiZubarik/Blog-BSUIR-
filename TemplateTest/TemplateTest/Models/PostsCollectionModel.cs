@@ -18,7 +18,7 @@ namespace TemplateTest.Models
                 for (int i = 0; i < ctx.Posts.Count(); i++)
                 {
                     var post = ctx.Posts.Where(p => p.PostID == 1).FirstOrDefault();
-                    var postModel = new PostModel(post.Title, post.Body, post.DateCreated,post.Comments.Count());
+                    var postModel = new PostModel(post.Title, post.Body, post.DateCreated/*,post.Comments.Count()*/);
                     Items.Add(postModel);
                 }
             }

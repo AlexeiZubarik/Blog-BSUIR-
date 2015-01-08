@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TemplateTest.Models;
 
 namespace TemplateTest.Controllers
 {
@@ -11,10 +12,11 @@ namespace TemplateTest.Controllers
         public AccountController()
         {
         }
-                
+        
         public ActionResult Login()
         {
-            return View();
+            var model = new LoginModel();
+            return View(model);
         }
 
         public ActionResult Register()

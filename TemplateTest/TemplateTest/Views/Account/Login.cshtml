@@ -5,21 +5,25 @@
 }
     <h2>Login Form</h2>
  <div id="comment_form">
-    <form method="post" action="@Url.Action("Index", "Home")">
-
+    <form method="post" action="@Url.Action("Login", "Account")">
+        
         <div class="form_row">
-            <strong>@Html.LabelFor(m => m.Email)</strong>
+            <strong>@Html.LabelFor(m => m.Name)</strong>
             <br />
-            @Html.TextBoxFor(m => m.Email)
+            @Html.ValidationMessageFor(m => m.Name)
+            @Html.TextBoxFor(m => m.Name)
+            @Html.ValidationMessageFor(m => m.Name)
         </div>
 
         <div class="form_row">
             <strong>@Html.LabelFor(m => m.Password)</strong>
             <br />
+            @Html.ValidationMessageFor(m => m.Password)
             @Html.TextBoxFor(m => m.Password)
+            
         </div>
 
-        <input type="submit" name="Log in" value="Submit" class="submit_btn" />
+        <input type="submit" name="Log in" value="Log in" class="submit_btn" />
 
     </form>
 </div>

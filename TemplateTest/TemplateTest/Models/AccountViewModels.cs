@@ -9,8 +9,9 @@ namespace TemplateTest.Models
     public class LoginModel
     {
         [Required]
-        [Display(Name = "Email")]
-        public string Email { get; set; }
+        [Display(Name = "Name")]
+        [StringLength(20)]
+        public string Name { get; set; }
 
         [Required]
         [DataType(DataType.Password)]

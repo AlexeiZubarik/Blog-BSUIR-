@@ -12,8 +12,6 @@ namespace TemplateTest.Models
         [Required(ErrorMessage = "Пожалуйста, введите {0}!")]
         [Display (Name ="Комментарий")]
         public string Comment{ get; set; }
-
-        //public UserModel User { get; set; }
-        
+        //public UserModel User { get; set; }        
     }
 }
