@@ -17,10 +17,5 @@ namespace TemplateTest.Controllers
             var model = new RecentDataModel();
             return View(model);
         }
-
-        public ContentResult ByID(int id)
-        {
-            return new ContentResult() { Content = "This is a comment #" + id };
-        }
     }
 }

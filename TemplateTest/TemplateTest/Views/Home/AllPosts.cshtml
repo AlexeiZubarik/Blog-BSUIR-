@@ -10,15 +10,16 @@
 
         <span class="comment">@item.CountComments</span>
 
-        <h2><a href="blog_post.html">@item.Title</a></h2>
+        @*<h2><a href="blog_post.html">@item.Title</a></h2>*@
+        <h2>@Html.ActionLink(item.Title, "Index", "Home", new { Post = item.Title }, null)</h2>
 
 
         @item.DateCreated.ToString() | <strong>Author:</strong> John | <strong>Category:</strong> <a href="#">Freebies</a>
 
-        <img src="~/Content/images/gallery/image_01.jpg" alt="image 1" />
+        <img src="~/Content/images/templatemo_image_01.jpg" alt="image 1" />
 
         <p>@item.Body</p>
-        <a href="blog_post.html">Continue reading...</a>
+        @Html.ActionLink("Continue reading...", "Index", "Home", new { Post = item.Title }, null)
 
     </div>
 }

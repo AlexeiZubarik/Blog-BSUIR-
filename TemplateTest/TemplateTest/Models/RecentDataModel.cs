@@ -17,7 +17,7 @@ namespace TemplateTest.Models
                 using (var ctx = new EFContext())
                 {
                     var post = ctx.Posts.FirstOrDefault();
-                    
+                    //post = ctx.Posts.Where(p => p.PostID == i).FirstOrDefault;
                     var postModel = new RecentDataItemModel(post.Title, post.PostID, post.DateCreated);
                     Items.Add(postModel);
                 }

@@ -8,7 +8,7 @@
     @foreach (var item in Model.Items)
     {
         <li>
-            <p>@Html.ActionLink(item.Text, "post", "Post", new { seoUrl = item.ID }, null)</p>
+            <p>@Html.ActionLink(item.Text, "Index", "Home", new { seoUrl = item.Text }, null)</p>
             <p class="date">@item.Date.ToString("D")</p>
         </li>
     }
